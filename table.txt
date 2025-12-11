@@ -1,0 +1,14 @@
+Saved table to results_table.tsv
+                        Actor   Amazon-ratings        Chameleon         CiteSeer        Computers             Cora            Photo           PubMed ogbn-products
+adafgl                    oom              xcp              xcp              oom              xcp              oom              xcp              xcp           xcp
+fedavg        0.3114 ± 0.0013  0.4403 ± 0.0022  0.5632 ± 0.0064  0.6738 ± 0.0004  0.8730 ± 0.0014  0.8034 ± 0.0041  0.9089 ± 0.0021  0.8424 ± 0.0002           xcp
+feddc         0.3087 ± 0.0055  0.4046 ± 0.0019  0.5181 ± 0.0074  0.7185 ± 0.0063  0.8359 ± 0.0185  0.8448 ± 0.0063  0.8987 ± 0.0032  0.8149 ± 0.0020           xcp
+fedgl                     oom  0.4341 ± 0.0038  0.5416 ± 0.0211  0.6200 ± 0.0015  0.7070 ± 0.0054  0.7970 ± 0.0027  0.7391 ± 0.0121  0.8146 ± 0.0037           xcp
+fedgta                    oom  0.4383 ± 0.0021  0.5605 ± 0.0125  0.6720 ± 0.0030  0.8654 ± 0.0024  0.8064 ± 0.0018  0.9118 ± 0.0026  0.8376 ± 0.0003           xcp
+fedproto      0.2774 ± 0.0068  0.4860 ± 0.0020  0.6282 ± 0.0127  0.6488 ± 0.0044  0.7392 ± 0.0177  0.7966 ± 0.0036  0.8318 ± 0.0129  0.8448 ± 0.0034           xcp
+fedpub                    xcp              xcp              xcp              xcp              xcp              xcp              xcp              xcp           xcp
+fedsage_plus              oom  0.4696 ± 0.0024              oom              oom  0.8643 ± 0.0079  0.8078 ± 0.0000  0.9204 ± 0.0019  0.8582 ± 0.0004           xcp
+fedtad                    oom  0.4380 ± 0.0052              oom              xcp  0.8516 ± 0.0063              xcp  0.9061 ± 0.0014              xcp           xcp
+fedtgp        0.2622 ± 0.0000  0.4872 ± 0.0023  0.6182 ± 0.0031  0.6508 ± 0.0081  0.7259 ± 0.0034  0.8011 ± 0.0036  0.8215 ± 0.0212  0.8473 ± 0.0011           xcp
+fggp                      xcp              xcp              xcp              xcp              xcp              xcp              xcp              xcp           xcp
+fgssl                     xcp              xcp              xcp              xcp              xcp              xcp              xcp              xcp           xcp

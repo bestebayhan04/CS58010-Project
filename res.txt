@@ -1,0 +1,174 @@
+(Cora, fedavg): 0.8066727058822073 +- 0.002730735137541296
+(Cora, feddc): 0.852353218662822 +- 0.0009231573888244804
+(Cora, fedproto): 0.7962871610761898 +- 0.003614542270051868
+(Cora, fedtgp): 0.7957155097154643 +- 0.002235394970542537
+(Cora, fedsage_plus): 0.8006731514569676 +- 0.003606034994575069
+(Cora, fedgta): 0.8069550577247361 +- 0.0013528198819737214
+(Cora, fedavg): [0.8079309738500133, 0.7997523126095198, 0.8024718218424658] -> 0.8033850361006664 +- 0.004089330620246745
+(Cora, feddc): [0.8366913319881107, 0.849351600092654, 0.8484612322347632] -> 0.8448347214385094 +- 0.006330134052271619
+(Cora, fedproto): [0.793291798836044, 0.8005319096639487, 0.7959921601298835] -> 0.796605289543292 +- 0.0036200554139523833
+(Cora, fedtgp): [0.797821787927903, 0.8050584475254965, 0.8005186685687904] -> 0.8011329680073965 +- 0.0036183297987967267
+(Cora, fedsage_plus): [0.8078461656844198, 'oom', 'oom'] -> 0.8078461656844198 +- 0.0
+(Cora, fedgta): [0.8069466131841511, 0.8078679524629594, 0.8042892557565057] -> 0.806367940467872 +- 0.0017893483532268606
+(Cora, fedpub): ["exception: No module named 'torch_scatter'", "exception: No module named 'torch_scatter'", "exception: No module named 'torch_scatter'"] -> n/a +- n/a
+(Cora, fgssl): ["exception: No module named 'torch_scatter'", "exception: No module named 'torch_scatter'", "exception: No module named 'torch_scatter'"] -> n/a +- n/a
+(Cora, fedgl): [0.7997138116461995, 0.7943090844982414, 'oom'] -> 0.7970114480722205 +- 0.0027023635739790164
+(Cora, adafgl): ['oom', 'oom', 'oom'] -> n/a +- n/a
+(Cora, fggp): ["exception: No module named 'pynndescent'", "exception: No module named 'pynndescent'", "exception: No module named 'pynndescent'"] -> n/a +- n/a
+(Cora, fedtad): ['exception: cusolver error: CUSOLVER_STATUS_INTERNAL_ERROR, when calling `cusolverDnCreate(handle)`. If you keep seeing this error, you may use `torch.backends.cuda.preferred_linalg_library()` to try linear algebra operators with other supported backends. See https://pytorch.org/docs/stable/backends.html#torch.backends.cuda.preferred_linalg_library', 'exception: cusolver error: CUSOLVER_STATUS_INTERNAL_ERROR, when calling `cusolverDnCreate(handle)`. If you keep seeing this error, you may use `torch.backends.cuda.preferred_linalg_library()` to try linear algebra operators with other supported backends. See https://pytorch.org/docs/stable/backends.html#torch.backends.cuda.preferred_linalg_library', 'exception: cusolver error: CUSOLVER_STATUS_INTERNAL_ERROR, when calling `cusolverDnCreate(handle)`. If you keep seeing this error, you may use `torch.backends.cuda.preferred_linalg_library()` to try linear algebra operators with other supported backends. See https://pytorch.org/docs/stable/backends.html#torch.backends.cuda.preferred_linalg_library'] -> n/a +- n/a
+(CiteSeer, fedavg): [0.6735156981168561, 0.6742609721315405, 0.6734981741440165] -> 0.6737582814641376 +- 0.0003813989937619944
+(CiteSeer, feddc): [0.7177371702202808, 0.7126009844698968, 0.7251875306595386] -> 0.7185085617832389 +- 0.0062932730948208615
+(CiteSeer, fedproto): [0.6534567002344506, 0.6445692150152169, 0.6482606985832793] -> 0.6487622046109823 +- 0.00444374260961683
+(CiteSeer, fedtgp): [0.6432210402978028, 0.6593585320786436, 0.6498097977172519] -> 0.6507964566978994 +- 0.008068745890420392
+(CiteSeer, fedsage_plus): ['oom', 'oom', 'oom'] -> n/a +- n/a
+(CiteSeer, fedgta): [0.6750201361846447, 0.6690324205385838, 0.6720180655811726] -> 0.6720235407681336 +- 0.0029938578230304658
+(CiteSeer, fedpub): ["exception: No module named 'torch_scatter'", "exception: No module named 'torch_scatter'", "exception: No module named 'torch_scatter'"] -> n/a +- n/a
+(CiteSeer, fgssl): ["exception: No module named 'torch_scatter'", "exception: No module named 'torch_scatter'", "exception: No module named 'torch_scatter'"] -> n/a +- n/a
+(CiteSeer, fedgl): [0.6187798681950683, 0.6195126430626898, 0.621769623785219] -> 0.6200207116809924 +- 0.0014948777950754
+(CiteSeer, adafgl): ['oom', 'oom', 'oom'] -> n/a +- n/a
+(CiteSeer, fggp): ["exception: No module named 'pynndescent'", "exception: No module named 'pynndescent'", "exception: No module named 'pynndescent'"] -> n/a +- n/a
+(CiteSeer, fedtad): ['exception: cusolver error: CUSOLVER_STATUS_INTERNAL_ERROR, when calling `cusolverDnCreate(handle)`. If you keep seeing this error, you may use `torch.backends.cuda.preferred_linalg_library()` to try linear algebra operators with other supported backends. See https://pytorch.org/docs/stable/backends.html#torch.backends.cuda.preferred_linalg_library', 'exception: cusolver error: CUSOLVER_STATUS_INTERNAL_ERROR, when calling `cusolverDnCreate(handle)`. If you keep seeing this error, you may use `torch.backends.cuda.preferred_linalg_library()` to try linear algebra operators with other supported backends. See https://pytorch.org/docs/stable/backends.html#torch.backends.cuda.preferred_linalg_library', 'exception: cusolver error: CUSOLVER_STATUS_INTERNAL_ERROR, when calling `cusolverDnCreate(handle)`. If you keep seeing this error, you may use `torch.backends.cuda.preferred_linalg_library()` to try linear algebra operators with other supported backends. See https://pytorch.org/docs/stable/backends.html#torch.backends.cuda.preferred_linalg_library'] -> n/a +- n/a
+(PubMed, fedavg): [0.8424002939752091, 0.8425273376454795, 0.8421469584050935] -> 0.8423581966752608 +- 0.00019018962019301533
+(PubMed, feddc): [0.8135410125893063, 0.8135438375212896, 0.8175897144315177] -> 0.8148915215140379 +- 0.0020243509211057
+(PubMed, fedproto): [0.8484776508824692, 0.8443004598393509, 0.8416430022479028] -> 0.8448070376565743 +- 0.003417324317283199
+(PubMed, fedtgp): [0.8477191209072388, 0.8482249795548559, 0.8459469567630029] -> 0.8472970190750324 +- 0.0011390113959264814
+(PubMed, fedsage_plus): [0.8587309293352792, 0.858098673730617, 0.857845024933612] -> 0.8582248759998361 +- 0.00044295220083356845
+(PubMed, fedgta): [0.837335166138085, 0.8379685502986681, 0.8374623771399594] -> 0.8375886978589042 +- 0.0003166920802915585
+(PubMed, fedpub): ["exception: No module named 'torch_scatter'", "exception: No module named 'torch_scatter'", "exception: No module named 'torch_scatter'"] -> n/a +- n/a
+(PubMed, fgssl): ["exception: No module named 'torch_scatter'", "exception: No module named 'torch_scatter'", "exception: No module named 'torch_scatter'"] -> n/a +- n/a
+(PubMed, fedgl): [0.8155635251747705, 0.8103742669444925, 0.8177180973026005] -> 0.8145519631406212 +- 0.003671915179053964
+(PubMed, adafgl): ['exception: no file with expected extension', 'exception: no file with expected extension', 'exception: no file with expected extension'] -> n/a +- n/a
+(PubMed, fggp): ["exception: No module named 'pynndescent'", "exception: No module named 'pynndescent'", "exception: No module named 'pynndescent'"] -> n/a +- n/a
+(PubMed, fedtad): ['exception: cusolver error: CUSOLVER_STATUS_INTERNAL_ERROR, when calling `cusolverDnCreate(handle)`. If you keep seeing this error, you may use `torch.backends.cuda.preferred_linalg_library()` to try linear algebra operators with other supported backends. See https://pytorch.org/docs/stable/backends.html#torch.backends.cuda.preferred_linalg_library', 'exception: cusolver error: CUSOLVER_STATUS_INTERNAL_ERROR, when calling `cusolverDnCreate(handle)`. If you keep seeing this error, you may use `torch.backends.cuda.preferred_linalg_library()` to try linear algebra operators with other supported backends. See https://pytorch.org/docs/stable/backends.html#torch.backends.cuda.preferred_linalg_library', 'exception: cusolver error: CUSOLVER_STATUS_INTERNAL_ERROR, when calling `cusolverDnCreate(handle)`. If you keep seeing this error, you may use `torch.backends.cuda.preferred_linalg_library()` to try linear algebra operators with other supported backends. See https://pytorch.org/docs/stable/backends.html#torch.backends.cuda.preferred_linalg_library'] -> n/a +- n/a
+(Computers, fedavg): [0.8740827918636124, 0.8712231634457495, 0.8735456382888674] -> 0.8729505311994098 +- 0.001429814208931457
+(Computers, feddc): [0.8401577494028805, 0.8522163245593726, 0.8152167928084568] -> 0.8358636222569032 +- 0.018499765875457874
+(Computers, fedproto): [0.7180339143179362, 0.7534690700709048, 0.7462430283423288] -> 0.7392486709103899 +- 0.017717577876484314
+(Computers, fedtgp): [0.7299758928540385, 0.7247286515361937, 0.723082724442188] -> 0.7259290896108067 +- 0.0034465842059252516
+(Computers, fedsage_plus): [0.861481487175115, 0.8578250446164584, 0.8735710408803571] -> 0.8642925242239768 +- 0.00787299813194936
+(Computers, fedgta): [0.8643394558485483, 0.8634179909522248, 0.8683094293094668] -> 0.8653556253700799 +- 0.0024457191786209642
+(Computers, fedpub): ["exception: No module named 'torch_scatter'", "exception: No module named 'torch_scatter'", "exception: No module named 'torch_scatter'"] -> n/a +- n/a
+(Computers, fgssl): ["exception: No module named 'torch_scatter'", "exception: No module named 'torch_scatter'", "exception: No module named 'torch_scatter'"] -> n/a +- n/a
+(Computers, fedgl): [0.7060246675854328, 0.7128637281237257, 0.7021161571062644] -> 0.707001517605141 +- 0.005373785508730633
+(Computers, adafgl): ['exception: no file with expected extension', 'exception: no file with expected extension', 'exception: no file with expected extension'] -> n/a +- n/a
+(Computers, fggp): ["exception: No module named 'pynndescent'", "exception: No module named 'pynndescent'", "exception: No module named 'pynndescent'"] -> n/a +- n/a
+(Computers, fedtad): [0.8567604325644219, 0.8540494850230738, 0.8441216846542416] -> 0.8516438674139124 +- 0.006319373955090135
+(Photo, fedavg): [0.9120179990389196, 0.9055509108438341, 0.9078112013297487] -> 0.9084600370708341 +- 0.0032335440975427288
+(Photo, feddc): [0.912990865842601, 0.9019809060860313, 0.8981121199189311] -> 0.9043612972825211 +- 0.007439372961834945
+(Photo, fedproto): [0.8037074679453989, 0.8033819505495382, 0.8153625789902249] -> 0.8074839991617208 +- 0.005990314220343351
+(Photo, fedtgp): [0.8308834707723951, 0.8525522053558068, 0.8357295501306462] -> 0.8397217420862827 +- 0.010834367291705838
+(Photo, fedavg): [0.907484815695517, 0.9074846363534973, 0.9116922788679593] -> 0.9088872436389912 +- 0.00210382125723102
+(Photo, feddc): [0.8997379926754666, 0.89487339288245, 0.9013431302075935] -> 0.8986515052551701 +- 0.0032348686625717216
+(Photo, fedproto): [0.818902863506044, 0.844730935555171, 0.8318446139148978] -> 0.8318261376587043 +- 0.01291403602456348
+(Photo, fedtgp): [0.8347589109052838, 0.8360527722852104, 0.7936407650504507] -> 0.8214841494136481 +- 0.021206003617379843
+(Photo, fedsage_plus): ['oom', 'oom', 'oom'] -> n/a +- n/a
+(Photo, fedgta): [0.9110587866057678, 0.91622658462811, 0.914286942395879] -> 0.9138574378765855 +- 0.00258389901117112
+(Photo, fedpub): ["exception: No module named 'torch_scatter'", "exception: No module named 'torch_scatter'", "exception: No module named 'torch_scatter'"] -> n/a +- n/a
+(Photo, fgssl): ["exception: No module named 'torch_scatter'", "exception: No module named 'torch_scatter'", "exception: No module named 'torch_scatter'"] -> n/a +- n/a
+(Photo, fedgl): ['oom', 'oom', 'oom'] -> n/a +- n/a
+(Photo, adafgl): ['exception: no file with expected extension', 'exception: no file with expected extension', 'exception: no file with expected extension'] -> n/a +- n/a
+(Photo, fggp): ["exception: No module named 'pynndescent'", "exception: No module named 'pynndescent'", "exception: No module named 'pynndescent'"] -> n/a +- n/a
+(Photo, fedtad): ['exception: cusolver error: CUSOLVER_STATUS_INTERNAL_ERROR, when calling `cusolverDnCreate(handle)`. If you keep seeing this error, you may use `torch.backends.cuda.preferred_linalg_library()` to try linear algebra operators with other supported backends. See https://pytorch.org/docs/stable/backends.html#torch.backends.cuda.preferred_linalg_library', 'exception: cusolver error: CUSOLVER_STATUS_INTERNAL_ERROR, when calling `cusolverDnCreate(handle)`. If you keep seeing this error, you may use `torch.backends.cuda.preferred_linalg_library()` to try linear algebra operators with other supported backends. See https://pytorch.org/docs/stable/backends.html#torch.backends.cuda.preferred_linalg_library', 'exception: cusolver error: CUSOLVER_STATUS_INTERNAL_ERROR, when calling `cusolverDnCreate(handle)`. If you keep seeing this error, you may use `torch.backends.cuda.preferred_linalg_library()` to try linear algebra operators with other supported backends. See https://pytorch.org/docs/stable/backends.html#torch.backends.cuda.preferred_linalg_library'] -> n/a +- n/a
+(ogbn-products, fedavg): ["exception: No module named 'ogb'", "exception: No module named 'ogb'", "exception: No module named 'ogb'"] -> n/a +- n/a
+(ogbn-products, feddc): ["exception: No module named 'ogb'", "exception: No module named 'ogb'", "exception: No module named 'ogb'"] -> n/a +- n/a
+(ogbn-products, fedproto): ["exception: No module named 'ogb'", "exception: No module named 'ogb'", "exception: No module named 'ogb'"] -> n/a +- n/a
+(ogbn-products, fedtgp): ["exception: No module named 'ogb'", "exception: No module named 'ogb'", "exception: No module named 'ogb'"] -> n/a +- n/a
+(ogbn-products, fedsage_plus): ["exception: No module named 'ogb'", "exception: No module named 'ogb'", "exception: No module named 'ogb'"] -> n/a +- n/a
+(ogbn-products, fedgta): ["exception: No module named 'ogb'", "exception: No module named 'ogb'", "exception: No module named 'ogb'"] -> n/a +- n/a
+(ogbn-products, fedpub): ["exception: No module named 'ogb'", "exception: No module named 'ogb'", "exception: No module named 'ogb'"] -> n/a +- n/a
+(ogbn-products, fgssl): ["exception: No module named 'ogb'", "exception: No module named 'ogb'", "exception: No module named 'ogb'"] -> n/a +- n/a
+(ogbn-products, fedgl): ["exception: No module named 'ogb'", "exception: No module named 'ogb'", "exception: No module named 'ogb'"] -> n/a +- n/a
+(ogbn-products, adafgl): ["exception: No module named 'ogb'", "exception: No module named 'ogb'", "exception: No module named 'ogb'"] -> n/a +- n/a
+(ogbn-products, fggp): ["exception: No module named 'ogb'", "exception: No module named 'ogb'", "exception: No module named 'ogb'"] -> n/a +- n/a
+(ogbn-products, fedtad): ["exception: No module named 'ogb'", "exception: No module named 'ogb'", "exception: No module named 'ogb'"] -> n/a +- n/a
+(Amazon-ratings, fedavg): [0.43543409427734114, 0.4430843055487004, 0.4399929757823297] -> 0.4395037918694571 +- 0.0038251056356796154
+(Amazon-ratings, feddc): [0.40725825192499054, 0.409699412076535, 0.4067701062029331] -> 0.40790925673481954 +- 0.001464652936800953
+(Amazon-ratings, fedproto): [0.48626081407447147, 0.4870770977730581, 0.48463799543256375] -> 0.48599196909336445 +- 0.0012195511702471629
+(Amazon-ratings, fedtgp): [0.4849572880206165, 0.4872379651913819, 0.48609884625705074] -> 0.48609803315634975 +- 0.0011403385853827053
+(Amazon-ratings, fedsage_plus): ['oom', 'oom', 'oom'] -> n/a +- n/a
+(Amazon-ratings, fedgta): [0.44129612976958305, 0.44292671399991385, 0.44064468690791503] -> 0.441622510225804 +- 0.0011410135459994086
+(Amazon-ratings, fedpub): ["exception: No module named 'torch_scatter'", "exception: No module named 'torch_scatter'", "exception: No module named 'torch_scatter'"] -> n/a +- n/a
+(Amazon-ratings, fgssl): ["exception: No module named 'torch_scatter'", "exception: No module named 'torch_scatter'", "exception: No module named 'torch_scatter'"] -> n/a +- n/a
+(Amazon-ratings, fedgl): [0.4347909564754802, 0.44032331121230933, 0.42778864239007813] -> 0.4343009700259559 +- 0.006267334411115599
+(Amazon-ratings, adafgl): ['exception: no file with expected extension', 'exception: no file with expected extension', 'exception: no file with expected extension'] -> n/a +- n/a
+(Amazon-ratings, fggp): ["exception: No module named 'pynndescent'", "exception: No module named 'pynndescent'", "exception: No module named 'pynndescent'"] -> n/a +- n/a
+(Amazon-ratings, fedtad): ['oom', 'oom', 'oom'] -> n/a +- n/a
+(Chameleon, fedavg): [0.5624688197250984, 0.5560856062651903, 0.5539373182203321] -> 0.5574972480702071 +- 0.004265750752383168
+(Chameleon, feddc): [0.5202374762893262, 0.5181455158298258, 0.5053071077011126] -> 0.514563366606755 +- 0.0074651842941067525
+(Chameleon, fedproto): [0.6274146893104494, 0.6273993805576307, 0.6315625319460048] -> 0.628792200604695 +- 0.0020815756941870434
+(Photo, fedsage_plus): [0.9220378316213581, 0.9181622214438724, 0.921076213527107] -> 0.9204254221974458 +- 0.001937805088742861
+(Chameleon, fedtgp): [0.6103738320670538, 0.617103954946245, 0.6147920851715073] -> 0.6140899573949353 +- 0.00336506143959564
+(Chameleon, fedsage_plus): ['oom', 'oom', 'oom'] -> n/a +- n/a
+(Photo, fedgta): [0.9133238775771476, 0.9084672243009891, 0.9136405348826574] -> 0.9118105455869313 +- 0.002586655290834128
+(Photo, fedpub): ["exception: No module named 'torch_scatter'", "exception: No module named 'torch_scatter'", "exception: No module named 'torch_scatter'"] -> n/a +- n/a
+(Photo, fgssl): ["exception: No module named 'torch_scatter'", "exception: No module named 'torch_scatter'", "exception: No module named 'torch_scatter'"] -> n/a +- n/a
+(Chameleon, fedgta): [0.5626645374309431, 0.5480634515363113, 0.5646981361523624] -> 0.5584753750398723 +- 0.008317342308025555
+(Chameleon, fedpub): ["exception: No module named 'torch_scatter'", "exception: No module named 'torch_scatter'", "exception: No module named 'torch_scatter'"] -> n/a +- n/a
+(Chameleon, fgssl): ["exception: No module named 'torch_scatter'", "exception: No module named 'torch_scatter'", "exception: No module named 'torch_scatter'"] -> n/a +- n/a
+(Photo, fedgl): [0.7522537668163378, 0.7370313733571858, 0.7279702626460715] -> 0.7390851342731984 +- 0.012141752085133184
+(Photo, adafgl): ['exception: no file with expected extension', 'exception: no file with expected extension', 'exception: no file with expected extension'] -> n/a +- n/a
+(Photo, fggp): ["exception: No module named 'pynndescent'", "exception: No module named 'pynndescent'", "exception: No module named 'pynndescent'"] -> n/a +- n/a
+(Chameleon, fedgl): [0.5118152936070841, 0.5290039373714772, 0.5244285336291817] -> 0.5217492548692477 +- 0.008594321882196554
+(Chameleon, adafgl): ['exception: no file with expected extension', 'exception: no file with expected extension', 'exception: no file with expected extension'] -> n/a +- n/a
+(Chameleon, fggp): ["exception: No module named 'pynndescent'", "exception: No module named 'pynndescent'", "exception: No module named 'pynndescent'"] -> n/a +- n/a
+(Chameleon, fedtad): ['oom', 'oom', 'oom'] -> n/a +- n/a
+(Actor, fedavg): [0.30289412824995726, 0.314362494115147, 0.31072449056473045] -> 0.30932703764327824 +- 0.005734182932594867
+(Actor, feddc): [0.3102188921721249, 0.3264038854679111, 0.2966908038008522] -> 0.31110452714696274 +- 0.014856540833529441
+(Actor, fedproto): [0.2726605895621366, 0.26952644144122095, 0.2695467055056981] -> 0.27057791216968524 +- 0.0015670740604578348
+(Actor, fedtgp): [0.2658997165880992, 0.2716211108382987, 0.26380203898030746] -> 0.26710762213556843 +- 0.003909535928995622
+(Actor, fedsage_plus): ['oom', 'oom', 'oom'] -> n/a +- n/a
+(Actor, fedgta): [0.3055085607628762, 0.3149038215758702, 0.3143581279051522] -> 0.3115901700812995 +- 0.004697630406497011
+(Actor, fedpub): ["exception: No module named 'torch_scatter'", "exception: No module named 'torch_scatter'", "exception: No module named 'torch_scatter'"] -> n/a +- n/a
+(Actor, fgssl): ["exception: No module named 'torch_scatter'", "exception: No module named 'torch_scatter'", "exception: No module named 'torch_scatter'"] -> n/a +- n/a
+(Actor, fedgl): [0.25500709385697257, 0.2565130461877792, 0.2570526325321302] -> 0.256190924192294 +- 0.001022769337578805
+(Actor, adafgl): ['exception: no file with expected extension', 'exception: no file with expected extension', 'exception: no file with expected extension'] -> n/a +- n/a
+(Actor, fggp): ["exception: No module named 'pynndescent'", "exception: No module named 'pynndescent'", "exception: No module named 'pynndescent'"] -> n/a +- n/a
+(Actor, fedtad): ['oom', 'oom', 'oom'] -> n/a +- n/a
+(Photo, fedtad): [0.9061851895246781, 0.9046000235342737, 0.9074911916221945] -> 0.9060921348937154 +- 0.0014455840439603906
+(ogbn-products, fedavg): ["exception: No module named 'ogb'", "exception: No module named 'ogb'", "exception: No module named 'ogb'"] -> n/a +- n/a
+(ogbn-products, feddc): ["exception: No module named 'ogb'", "exception: No module named 'ogb'", "exception: No module named 'ogb'"] -> n/a +- n/a
+(ogbn-products, fedproto): ["exception: No module named 'ogb'", "exception: No module named 'ogb'", "exception: No module named 'ogb'"] -> n/a +- n/a
+(ogbn-products, fedtgp): ["exception: No module named 'ogb'", "exception: No module named 'ogb'", "exception: No module named 'ogb'"] -> n/a +- n/a
+(ogbn-products, fedsage_plus): ["exception: No module named 'ogb'", "exception: No module named 'ogb'", "exception: No module named 'ogb'"] -> n/a +- n/a
+(ogbn-products, fedgta): ["exception: No module named 'ogb'", "exception: No module named 'ogb'", "exception: No module named 'ogb'"] -> n/a +- n/a
+(ogbn-products, fedpub): ["exception: No module named 'ogb'", "exception: No module named 'ogb'", "exception: No module named 'ogb'"] -> n/a +- n/a
+(ogbn-products, fgssl): ["exception: No module named 'ogb'", "exception: No module named 'ogb'", "exception: No module named 'ogb'"] -> n/a +- n/a
+(ogbn-products, fedgl): ["exception: No module named 'ogb'", "exception: No module named 'ogb'", "exception: No module named 'ogb'"] -> n/a +- n/a
+(ogbn-products, adafgl): ["exception: No module named 'ogb'", "exception: No module named 'ogb'", "exception: No module named 'ogb'"] -> n/a +- n/a
+(ogbn-products, fggp): ["exception: No module named 'ogb'", "exception: No module named 'ogb'", "exception: No module named 'ogb'"] -> n/a +- n/a
+(ogbn-products, fedtad): ["exception: No module named 'ogb'", "exception: No module named 'ogb'", "exception: No module named 'ogb'"] -> n/a +- n/a
+(Amazon-ratings, fedavg): [0.4385260412371693, 0.43934012554951196, 0.4429257611936696] -> 0.4402639759934503 +- 0.002199859978250146
+(Amazon-ratings, feddc): [0.4054688281682665, 0.4023598751751453, 0.4061192452401899] -> 0.4046493161945339 +- 0.0018796850325222825
+(Amazon-ratings, fedproto): [0.48609752800140654, 0.48805285458556374, 0.48398097134349766] -> 0.4860437846434893 +- 0.002035941621033044
+(Amazon-ratings, fedtgp): [0.4900083387579886, 0.48626360622788056, 0.48545009619156937] -> 0.48724068039247953 +- 0.0022791212832096175
+(Amazon-ratings, fedsage_plus): [0.46736271233354343, 0.4693240729834467, 0.47209203057358784] -> 0.4695929386301927 +- 0.0023646591200222056
+(Amazon-ratings, fedgta): [0.4386871979371196, 0.44015364345080193, 0.4359212403675422] -> 0.4382540272518212 +- 0.002116201541629864
+(Amazon-ratings, fedpub): ["exception: No module named 'torch_scatter'", "exception: No module named 'torch_scatter'", "exception: No module named 'torch_scatter'"] -> n/a +- n/a
+(Amazon-ratings, fgssl): ["exception: No module named 'torch_scatter'", "exception: No module named 'torch_scatter'", "exception: No module named 'torch_scatter'"] -> n/a +- n/a
+(Amazon-ratings, fedgl): [0.43919263221721067, 0.4315313870775726, 0.4315241561522127] -> 0.43408272514899865 +- 0.0038342380324989933
+(Amazon-ratings, adafgl): ['exception: no file with expected extension', 'exception: no file with expected extension', 'exception: no file with expected extension'] -> n/a +- n/a
+(Amazon-ratings, fggp): ["exception: No module named 'pynndescent'", "exception: No module named 'pynndescent'", "exception: No module named 'pynndescent'"] -> n/a +- n/a
+(Amazon-ratings, fedtad): [0.4341268971610441, 0.44455613914986314, 0.4352705269917921] -> 0.43798452110089975 +- 0.00521462099440953
+(Chameleon, fedavg): [0.5688826415980076, 0.564579405151914, 0.5560938870593204] -> 0.5631853112697472 +- 0.00639437726934361
+(Chameleon, feddc): [0.5200589780889537, 0.5244855665433574, 0.509720234506894] -> 0.5180882597130684 +- 0.007382666018231732
+(Chameleon, fedproto): [0.6401964106946553, 0.6295694123441895, 0.6147451775577618] -> 0.6281703335322022 +- 0.01272561656844673
+(Chameleon, fedtgp): [0.6190238814205867, 0.6209518581257711, 0.6146941288974775] -> 0.6182232894812785 +- 0.003128864614146798
+(Chameleon, fedsage_plus): ['oom', 'oom', 'oom'] -> n/a +- n/a
+(Chameleon, fedgta): [0.5480381830989447, 0.5605104164596468, 0.5730199504139553] -> 0.5605228499908489 +- 0.01249088365750528
+(Chameleon, fedpub): ["exception: No module named 'torch_scatter'", "exception: No module named 'torch_scatter'", "exception: No module named 'torch_scatter'"] -> n/a +- n/a
+(Chameleon, fgssl): ["exception: No module named 'torch_scatter'", "exception: No module named 'torch_scatter'", "exception: No module named 'torch_scatter'"] -> n/a +- n/a
+(Chameleon, fedgl): [0.5161692565743335, 0.5583578522776471, 0.5501614761350112] -> 0.5415628616623306 +- 0.021094297851656785
+(Chameleon, adafgl): ['oom', 'exception: no file with expected extension', 'exception: no file with expected extension'] -> n/a +- n/a
+(Chameleon, fggp): ["exception: No module named 'pynndescent'", "exception: No module named 'pynndescent'", "exception: No module named 'pynndescent'"] -> n/a +- n/a
+(Chameleon, fedtad): ['oom', 'oom', 'oom'] -> n/a +- n/a
+(Actor, fedavg): [0.3102015544406229, 0.31123541435487356, 0.31280167763352196] -> 0.31141288214300616 +- 0.00130006159644952
+(Actor, feddc): [0.31543186578832094, 0.30449960133556464, 0.30607528465670486] -> 0.3086689172601968 +- 0.005466132226378151
+(Actor, fedproto): [0.284163627868081, 'oom', 0.27058532415151737] -> 0.2773744760097992 +- 0.006789151858281828
+(Actor, fedtgp): ['oom', 0.26224338957210264, 'oom'] -> 0.26224338957210264 +- 0.0
+(Actor, fedsage_plus): ['oom', 'oom', 'oom'] -> n/a +- n/a
+(Actor, fedgta): ['oom', 'oom', 'oom'] -> n/a +- n/a
+(Actor, fedpub): ["exception: No module named 'torch_scatter'", "exception: No module named 'torch_scatter'", "exception: No module named 'torch_scatter'"] -> n/a +- n/a
+(Actor, fgssl): ["exception: No module named 'torch_scatter'", "exception: No module named 'torch_scatter'", "exception: No module named 'torch_scatter'"] -> n/a +- n/a
+(Actor, fedgl): ['oom', 'oom', 'oom'] -> n/a +- n/a
+(Actor, adafgl): ['oom', 'oom', 'oom'] -> n/a +- n/a
+(Actor, fggp): ["exception: No module named 'pynndescent'", "exception: No module named 'pynndescent'", "exception: No module named 'pynndescent'"] -> n/a +- n/a
+(Actor, fedtad): ['oom', 'oom', 'oom'] -> n/a +- n/a
