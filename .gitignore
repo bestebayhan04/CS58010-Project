@@ -1,1 +1,32 @@
 your_data_root
+
+
+# ===============================
+# Logs
+# ===============================
+*.log
+summary/logs/
+summary/logs/**
+
+# ===============================
+# Python cache files
+# ===============================
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+# VSCode
+.vscode/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+
+# ===============================
+# Optional: Python virtual env
+# ===============================
+venv/
+.env/

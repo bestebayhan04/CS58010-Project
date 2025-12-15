@@ -37,6 +37,8 @@ class HCFLClient(BaseClient):
         1) Synchronize local model with server-provided cluster model (if any)
         2) Run local training (self.task.train())
         """
+        
+
         # If server has sent cluster weights and a mapping, sync to the cluster model for this client
         server_msg = self.message_pool.get("server", None)
         if server_msg is not None:
@@ -49,6 +51,7 @@ class HCFLClient(BaseClient):
             if weights_per_cluster is not None and client_map is not None:
                 key = f"client_{self.client_id}"
                 cluster_idx = client_map.get(key, None)
+                print(f"Client {self.client_id} → cluster {cluster_idx}")
                 if cluster_idx is None:
                     # fallback: global broadcast (if provided as single model)
                     global_weights = server_msg.get("weight", None)

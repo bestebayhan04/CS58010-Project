@@ -36,6 +36,8 @@ class HCFLServer(BaseServer):
         4) Aggregate weights per cluster (weighted average by num_samples)
         5) Store results in message_pool["server"]
         """
+        
+
         sampled = self.message_pool.get("sampled_clients", [])
         if len(sampled) == 0:
             # nothing to do
@@ -107,7 +109,7 @@ class HCFLServer(BaseServer):
 
         # Build mapping: client_key -> cluster_idx
         client_cluster_map = {client_keys[i]: int(labels[i]) for i in range(n_clients)}
-
+        print("Clusters:", client_cluster_map)
         # Aggregate weights per cluster (weighted average by num_samples)
         clusters = {}
         cluster_sizes = {}

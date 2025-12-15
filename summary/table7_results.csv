@@ -1,0 +1,8 @@
+Dataset,FedAvg,HCFL+
+Actor,28.95,28.69
+Chameleon,52.53,55.68
+CiteSeer,69.02,67.84
+Computers,86.54,87.97
+Cora,80.79,80.52
+Photo,91.4,91.01
+PubMed,84.78,84.69
