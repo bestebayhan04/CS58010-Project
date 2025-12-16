@@ -11,6 +11,11 @@ import numpy as np
 from torch_geometric.utils import coalesce, cumsum, remove_self_loops
 from typing import Dict, List, Optional, Tuple
 
+# PyTorch 2.6+ loads checkpoints with weights_only=True by default, which blocks
+# loading arbitrary classes. Allowlist torch_geometric.data.data.Data so that
+# existing processed datasets (data.pt) can be loaded safely.
+torch.serialization.add_safe_globals([Data])
+
 
 def load_global_dataset(root, scenario, dataset):
     """Load a global dataset based on the given scenario and dataset name.

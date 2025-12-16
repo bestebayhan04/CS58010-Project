@@ -1,7 +1,7 @@
 import pandas as pd
 
-INPUT_FILE = "results_best_mean_std_by_clients.csv"        # senin verdiğin CSV
-OUTPUT_FILE = "results_best_mean_std_by_clients2.tsv"
+INPUT_FILE = "hcfl_plus_results_copy.csv"        # senin verdiğin CSV
+OUTPUT_FILE = "results_best_mean_std_by_clients4.tsv"
 
 # Load CSV
 df = pd.read_csv(INPUT_FILE)

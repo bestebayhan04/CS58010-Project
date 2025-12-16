@@ -1,6 +1,13 @@
 # OpenFGL/openfgl/flcore/hcfl_plus/server.py
+import os
+import sys
 import torch
 from openfgl.flcore.base import BaseServer
+
+# Ensure the cloned HCFL repo is on sys.path so we can import aggregator.py.
+HCFL_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "..", "HCFL"))
+if HCFL_ROOT not in sys.path:
+    sys.path.append(HCFL_ROOT)
 
 # import aggregator module from HCFL
 try:
