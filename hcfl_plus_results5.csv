@@ -1,0 +1,8 @@
+Dataset,Algorithm,NumClients,best_acc_mean,best_acc_std,Simulation,NumClusters,RunsRequested,RunsParsed
+Cora,HCFL+,10,0.6993751718807704,0.007068412059434703,subgraph_fl_louvain,3,3,3
+CiteSeer,HCFL+,10,0.6103944588142427,0.010913144259907595,subgraph_fl_louvain,3,3,3
+PubMed,HCFL+,10,0.7278514231526797,0.040562393012580585,subgraph_fl_louvain,3,3,3
+Computers,HCFL+,10,0.6211256880505869,0.010168436763075403,subgraph_fl_louvain,3,3,3
+Photo,HCFL+,10,0.685416426059468,0.012483169524949655,subgraph_fl_louvain,3,3,3
+Chameleon,HCFL+,10,0.4288892436301513,0.023136468485478866,subgraph_fl_louvain,3,3,3
+Actor,HCFL+,10,0.2639337039512396,0.02311663252784374,subgraph_fl_louvain,3,3,3

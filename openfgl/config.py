@@ -74,6 +74,11 @@ parser.add_argument("--metis_num_coms", type=int, default=100)
 # task settings
 parser.add_argument("--task", type=str, default="node_cls", choices=supported_graph_fl_task + supported_subgraph_fl_task)
 parser.add_argument("--num_clusters", type=int, default=7)
+# HCFL+ specific hyperparameters
+parser.add_argument("--hcfl_rho", type=float, default=0.1, help="HCFL+ cluster split threshold (ρ)")
+parser.add_argument("--hcfl_mu_tilde", type=float, default=0.4, help="HCFL+ regularization weight (µ̃)")
+parser.add_argument("--hcfl_k0", type=int, default=1, help="HCFL+ initial number of clusters")
+parser.add_argument("--hcfl_max_k", type=int, default=10, help="HCFL+ maximum number of clusters")
 # training settings
 parser.add_argument("--train_val_test", type=str, default="default_split") # e.g., 0.2-0.4-0.4
 parser.add_argument("--num_epochs", type=int, default=3)

@@ -112,8 +112,11 @@ def load_client(args, client_id, data, data_dir, message_pool, device):
     #elif args.fl_algorithm == "hcfl_plus":
     #    from openfgl.flcore.hcfl_plus.client import HCFLClient
     #    return HCFLClient(args, client_id, data, data_dir, message_pool, device)
+    #elif args.fl_algorithm == "hcfl_plus":
+    #    from openfgl.flcore.hcfl_plus.clientv2 import HCFLPlusClient
+    #    return HCFLPlusClient(args, client_id, data, data_dir, message_pool, device)
     elif args.fl_algorithm == "hcfl_plus":
-        from openfgl.flcore.hcfl_plus.clientv2 import HCFLPlusClient
+        from openfgl.flcore.hcfl_plus.client_improved import HCFLPlusClient
         return HCFLPlusClient(args, client_id, data, data_dir, message_pool, device)
     
     
@@ -191,8 +194,11 @@ def load_server(args, global_data, data_dir, message_pool, device):
     #elif args.fl_algorithm == "hcfl_plus":
     #    from openfgl.flcore.hcfl_plus.server import HCFLServer
     #    return HCFLServer(args, global_data, data_dir, message_pool, device)
+    #elif args.fl_algorithm == "hcfl_plus":
+    #    from openfgl.flcore.hcfl_plus.serverv2 import HCFLPlusServer
+    #    return HCFLPlusServer(args, global_data, data_dir, message_pool, device)
     elif args.fl_algorithm == "hcfl_plus":
-        from openfgl.flcore.hcfl_plus.serverv2 import HCFLPlusServer
+        from openfgl.flcore.hcfl_plus.server_improved import HCFLPlusServer
         return HCFLPlusServer(args, global_data, data_dir, message_pool, device)
     
 def load_optim(args):

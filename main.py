@@ -16,8 +16,7 @@ fl_datasets = ["Cora", "CiteSeer", "PubMed", "Computers",
                "Photo", "ogbn-products", "Amazon-ratings",
                "Chameleon", "Actor"]
 
-fl_datasets = ["Photo", "ogbn-products", "Amazon-ratings",
-               "Chameleon", "Actor"]
+#fl_datasets = ["Photo", "ogbn-products", "Amazon-ratings","Chameleon", "Actor"]
 
 for dataset in fl_datasets:
     for algo in fl_algorithms:
@@ -26,7 +25,7 @@ for dataset in fl_datasets:
 
         for _ in range(NUM_RUNS):
             args = config.args
-            args.simulation_mode = "subgraph_fl_metis"
+            args.simulation_mode = "subgraph_fl_louvain"
             args.num_clients = 10
             args.model = ["gcn"]
             args.metrics = ["accuracy"]

@@ -18,6 +18,7 @@ class HCFLPlusClient(BaseClient):
 
     def execute(self):
         server_msg = self.message_pool.get("server", None)
+        #mu_tilde = float(getattr(self.args, "hcfl_mu_tilde", 0.4))
 
         if server_msg is not None:
             key = f"client_{self.client_id}"
@@ -36,6 +37,37 @@ class HCFLPlusClient(BaseClient):
                         params_k = cluster_models[cid]
                         for p, pk in zip(self.task.model.parameters(), params_k):
                             p.add_(pk.to(self.device), alpha=float(alpha))
+                
+                # Store target model for µ̃ penalty: θ_target = Σₖ ω̃ᵢₖ θₖ
+                """
+                self.target_model_params = [
+                    p.detach().clone() for p in self.task.model.parameters()
+                ]
+            else:
+                self.target_model_params = None
+        else:
+            self.target_model_params = None
+
+        # Override loss function to include µ̃ penalty if enabled
+        if self.target_model_params is not None and mu_tilde > 0:
+            original_loss_fn = self.task.loss_fn
+            
+            def hcfl_loss_fn(embedding, logits, labels, mask):
+                # Base loss (standard cross-entropy or whatever the task uses)
+                base_loss = original_loss_fn(embedding, logits, labels, mask)
+                
+                # µ̃ penalty: ||θ_client - θ_target||²
+                penalty = 0.0
+                for p_client, p_target in zip(self.task.model.parameters(), self.target_model_params):
+                    penalty += torch.nn.functional.mse_loss(
+                        p_client, 
+                        p_target.to(self.device)
+                    )
+                
+                return base_loss + mu_tilde * penalty
+            
+            self.task.loss_fn = hcfl_loss_fn
+            """
 
         self.task.train()
 
