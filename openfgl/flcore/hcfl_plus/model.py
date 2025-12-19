@@ -37,6 +37,11 @@ class HCFLPlusSplitModel(nn.Module):
         # Create K cluster heads
         self.heads = nn.ModuleList([copy.deepcopy(self.head_template) for _ in range(self.num_heads)])
 
+        # --- for soft clustering at inference ---
+        self.default_head_idx = 0
+        self.default_head_weights = None   # torch.Tensor shape [K] or None
+
+
     def resize_heads(self, new_k: int):
         """Resize heads to new_k, keeping existing heads when possible."""
         new_k = int(new_k)
@@ -116,22 +121,50 @@ class HCFLPlusSplitModel(nn.Module):
     def forward(self, data, head_idx: int = 0, return_all_heads: bool = False):
         """
         Default behavior (for OpenFGL tasks):
-        - returns (z, logits) using head_idx (default head 0)
-
-        If return_all_heads=True:
-        - returns (z, [logits_k for k in heads])
+        - If return_all_heads=True: returns (z, [logits_k ...])
+        - Else:
+            * If self.default_head_weights is set -> returns (z, mixed_logits)
+            * Else -> returns (z, logits_of_one_head) using:
+                  provided head_idx OR self.default_head_idx
         """
         z = self.forward_embed(data)
+        print("HCFLPlusSplitModel.forward called | soft=", self.default_head_weights is not None)
 
+
+        # Return all heads if requested (training utilities etc.)
         if return_all_heads:
             logits_list = self.forward_heads(z, data)
             return z, logits_list
 
-        # normal single-head logits (what OpenFGL expects)
-        edge_index = data.edge_index if hasattr(data, "edge_index") else None
-        head = self.heads[int(head_idx)]
-        if edge_index is not None:
-            logits = head(z, edge_index)
-        else:
-            logits = head(z)
-        return z, logits
+        logits_list = self.forward_heads(z, data)   # list of K tensors [N, C]
+        K = len(logits_list)
+
+        # -------------------------
+        # ✅ SOFT mixture inference
+        # -------------------------
+        w = getattr(self, "default_head_weights", None)
+        if w is not None:
+            w = w.to(logits_list[0].device).float().view(-1)
+
+            # pad/truncate safely
+            if w.numel() != K:
+                if w.numel() < K:
+                    pad = torch.full((K - w.numel(),), 1e-6, device=w.device)
+                    w = torch.cat([w, pad], dim=0)
+                else:
+                    w = w[:K]
+
+            w = w / w.sum().clamp_min(1e-12)
+
+            mixed = 0.0
+            for k in range(K):
+                mixed = mixed + w[k] * logits_list[k]
+            return z, mixed
+
+        # -------------------------
+        # hard fallback (single head)
+        # -------------------------
+        idx = int(getattr(self, "default_head_idx", head_idx))
+        idx = max(0, min(idx, K - 1))
+        return z, logits_list[idx]
+

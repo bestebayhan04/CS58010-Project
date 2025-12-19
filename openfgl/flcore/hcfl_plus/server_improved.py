@@ -191,6 +191,7 @@ class HCFLPlusServer(BaseServer):
             W_full.append(w)
         W_full = np.vstack(W_full)  # [n, k0]
         w_cols = [W_full[:, c].copy() for c in range(W_full.shape[1])]
+        client_cluster_probs_before_ops = {keys[i]: W_full[i].astype(np.float32) for i in range(n)}
 
         # Algorithm-2 membership: argmax ω̃
         labels = np.argmax(W_full, axis=1).astype(int)
@@ -250,6 +251,7 @@ class HCFLPlusServer(BaseServer):
                 k_ops.append({"op": "split", "src": int(split_c), "dst": int(new_cluster_id)})
 
                 # add a ω̃ column for the new cluster (same as parent for ratio computations)
+                w_cols[int(split_c)] = 0.5 * w_cols[int(split_c)]
                 w_cols.append(w_cols[int(split_c)].copy())
 
                 for local_pos, global_idx in enumerate(idxs):
@@ -332,6 +334,10 @@ class HCFLPlusServer(BaseServer):
         # ----------------------------
         self._k = int(k)
         self._k_ops = k_ops if (self._k != self._old_k_for_ops) else None
+        if self._k_ops is not None:
+            print(f"[HCFL+] round={int(self.message_pool.get('round', -1))} K changed: "
+                f"{self._old_k_for_ops} -> {self._k} ops={self._k_ops}")
+
 
         # Build w_tilde_init from w_cols (already updated for split/remove/remap)
         # w_cols: list length = self._k, each entry shape = [n]
@@ -360,50 +366,71 @@ class HCFLPlusServer(BaseServer):
             enc_global.append(acc.to(self.device))
 
         # 5) aggregate K heads (θ_k) based on cluster assignments
+        # 5) aggregate K heads (θ_k) with SOFT membership
+        # Every client contributes to every head, weighted by ω̃_{i,c} (client-wise probability)
         cluster_heads = {}
+
+        # helper to fetch a head dict entry robustly
+        def _get_head(hdict, c):
+            hparams = hdict.get(int(c), None)
+            if hparams is None:
+                hparams = hdict.get(str(c), None)
+            return hparams
+
         for c in range(self._k):
-            idxs = [i for i in range(n) if int(labels[i]) == c]
-            if not idxs:
+            # choose a template head to know param count
+            template = None
+            for i in range(n):
+                template = _get_head(heads[i], c)
+                if template is not None:
+                    break
+            if template is None:
+                # no one has this head -> skip
                 continue
 
-            # pick a template for sizing (any existing head params)
-            any_head = heads[idxs[0]].get(0) or list(heads[idxs[0]].values())[0]
-            num_params = len(any_head)
-
+            num_params = len(template)
             agg = [None] * num_params
             tot = 0.0
 
-            for i in idxs:
-                hparams = heads[i].get(int(c), None)
+            for i in range(n):
+                hparams = _get_head(heads[i], c)
                 if hparams is None:
-                    hparams = heads[i].get(str(c), None)
-                if hparams is None:
-                    continue  # skip this client
+                    continue
 
-                w = float(sizes[i])
-                tot += w
+                # soft contribution weight: dataset size * membership prob
+                # W_full is [n, k0] but after splits/remaps k can change; use w_tilde_init if needed.
+                # Here we use W_full padded/truncated to k0. For adaptive k, prefer w_tilde_init later if you want exact.
+                w_soft = float(sizes_np[i]) * float(w_tilde_init[keys[i]][c])
+                if w_soft <= 0:
+                    continue
+
+                tot += w_soft
                 for pi in range(num_params):
-                    t = hparams[pi].detach().cpu().float() * w
+                    t = hparams[pi].detach().cpu().float() * w_soft
                     agg[pi] = t if agg[pi] is None else agg[pi] + t
 
             if tot <= 0.0 or any(a is None for a in agg):
-                # nobody contributed -> initialize safely from template
-                cluster_heads[str(c)] = [p.detach().cpu().float().to(self.device) for p in any_head]
+                # fallback: just broadcast the template
+                cluster_heads[str(c)] = [p.detach().cpu().float().to(self.device) for p in template]
             else:
                 for pi in range(num_params):
                     agg[pi] = (agg[pi] / tot).to(self.device)
                 cluster_heads[str(c)] = agg
 
 
+
         # cache to broadcast in send_message
         self._enc_global = enc_global
         self._cluster_heads = cluster_heads
+
+        client_cluster_probs = {k: v.copy() for k, v in w_tilde_init.items()}
 
         # 6) publish message to clients
         self.message_pool["server"] = {
             "encoder_params": self._enc_global,
             "cluster_heads": self._cluster_heads,
             "client_cluster_map": self._client_cluster_map,
+            "client_cluster_probs": client_cluster_probs,
             "k": int(self._k),
             "round": int(self.message_pool.get("round", 0)),
             "w_tilde_init": self._w_tilde_init,
@@ -433,10 +460,21 @@ class HCFLPlusServer(BaseServer):
             }
             self._k = k
 
+        sampled = self.message_pool.get("sampled_clients", [])
+        k = int(self._k)
+
+        client_cluster_probs = self._w_tilde_init
+        if client_cluster_probs is None:
+            # uniform probs for sampled clients
+            uni = (np.ones(k, dtype=np.float32) / max(k, 1)).tolist()
+            client_cluster_probs = {f"client_{cid}": uni for cid in sampled}
+
+
         self.message_pool["server"] = {
             "encoder_params": self._enc_global,
             "cluster_heads": self._cluster_heads,
             "client_cluster_map": self._client_cluster_map,
+            "client_cluster_probs": client_cluster_probs,
             "k": int(self._k),
             "round": int(self.message_pool.get("round", 0)),
             "old_k": int(self._old_k_for_ops) if self._old_k_for_ops is not None else None,

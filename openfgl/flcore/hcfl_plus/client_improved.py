@@ -191,7 +191,8 @@ class HCFLPlusClient(BaseClient):
         # ----------------------------------------------------
         prev_k = getattr(self, "_prev_k", None)
 
-        if server_msg is not None and (prev_k is None or prev_k != k):
+        k_ops = server_msg.get("k_ops", None) if server_msg is not None else None
+        if server_msg is not None and (k_ops is not None or prev_k is None or prev_k != k):
             # old_k can be None in round 0 -> fall back to current k
             old_k = server_msg.get("old_k", None)
             if old_k is None:
@@ -270,11 +271,25 @@ class HCFLPlusClient(BaseClient):
 
             # OPTIONAL but recommended: set which head to use for eval by default
             # (requires server to include client_cluster_map)
-            cmap = server_msg.get("client_cluster_map", None)
-            if isinstance(cmap, dict):
-                my_key = f"client_{self.client_id}"
-                if my_key in cmap:
+            # --- Soft eval/inference weights (client can belong to multiple clusters) ---
+            my_key = f"client_{self.client_id}"
+
+            # 1) Preferred: server-provided soft probs for this client
+            probs = server_msg.get("client_cluster_probs", None)
+            if isinstance(probs, dict) and (my_key in probs):
+                w = torch.tensor(probs[my_key], device=self.device).float().view(-1)
+                w = w / w.sum().clamp_min(1e-12)
+                self.task.model.default_head_weights = w.detach()
+                # optional: keep idx too as fallback
+                self.task.model.default_head_idx = int(torch.argmax(w).item())
+
+            else:
+                # 2) Fallback: hard cluster map
+                cmap = server_msg.get("client_cluster_map", None)
+                if isinstance(cmap, dict) and (my_key in cmap):
                     self.task.model.default_head_idx = int(cmap[my_key])
+                    self.task.model.default_head_weights = None
+
 
         # ------------------------------------
         # 2) local training (OpenFGL Task API)
@@ -395,6 +410,7 @@ class HCFLPlusClient(BaseClient):
             # ω̃^{t+1} = mean_j γ̃_{j,k}
             omega_tilde_new = gamma_tilde.mean(dim=0)
             omega_tilde_new = omega_tilde_new / omega_tilde_new.sum().clamp_min(eps)
+
 
             # ω^{t+1} = γ/(1+µN) + (µN)/(1+µN) * ω̃
             if mu > 0:
